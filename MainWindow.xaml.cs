@@ -53,17 +53,24 @@ namespace Organiser
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
+           
+
+
+
             //int i = 0;
             //while (i!=62)
             //{
                 DateTime now1 = DateTime.Now;
                 string strDate = now1.ToShortTimeString();
                 textBlock1.Text = strDate;
+                
                 //i = 1 + 1;
             //}
            
         }
+
+        
 
     }
 }
