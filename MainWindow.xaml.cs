@@ -24,17 +24,12 @@ namespace Organiser
     {
         public MainWindow()
         {
-            
+
             InitializeComponent();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
-            
-            DateTime now1 = DateTime.Now;
-            string strDate = now1.ToShortTimeString();
-            textBlock1.Text = strDate;
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -54,5 +49,21 @@ namespace Organiser
             window.Show();
             
         }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            //int i = 0;
+            //while (i!=62)
+            //{
+                DateTime now1 = DateTime.Now;
+                string strDate = now1.ToShortTimeString();
+                textBlock1.Text = strDate;
+                //i = 1 + 1;
+            //}
+           
+        }
+
     }
 }
