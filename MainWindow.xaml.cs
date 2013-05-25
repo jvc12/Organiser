@@ -31,10 +31,10 @@ namespace Organiser
         private void button1_Click(object sender, RoutedEventArgs e)
         {
 
-
+            
             DateTime now1 = DateTime.Now;
             string strDate = now1.ToShortTimeString();
-
+            textBlock1.Text = strDate;
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
