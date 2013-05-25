@@ -30,13 +30,20 @@ namespace Organiser
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+
+
+            DateTime now1 = DateTime.Now;
+            string strDate = now1.ToShortTimeString();
+
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con.Open();
             //SqlCommand cmd = new SqlCommand("insert into organiser select '" + datePicker1.Text + "','" + textBox1.Text +"'", con);  // Sql query and connection object is assigned to SqlCommand object i.e. ‘cmd’.
-            SqlCommand cmd1 = new SqlCommand("insert into Organizer select '" + DateTimePicker1.Text +"'", con);
+            //SqlCommand cmd1 = new SqlCommand("insert into Organizer select '" + DateTimePicker1.Text +"'", con);
             //cmd.ExecuteNonQuery();   // SqlCommand is executed
-            cmd1.ExecuteNonQuery();
+            SqlCommand cmd = new SqlCommand("insert into data select '" + DateTimePicker1.Text + "','" + textBox1.Text + "'", con);  
+            cmd.ExecuteNonQuery();
             MessageBox.Show("Reminder is set Successfully on "+DateTimePicker1.Text); //Show message box
             con.Close();  // Closes the connection
         }

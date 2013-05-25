@@ -5,7 +5,8 @@
     <Grid>
         <DataGrid AlternatingRowBackground="#FFC4B0B0" AutoGenerateColumns="False" Margin="12,103,28,12" Name="dataGrid1">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding time}" Header="Time" Width="100" />
+                <DataGridTextColumn Binding="{Binding value}" Header="Time" Width="200" />
+                <DataGridTextColumn Binding="{Binding name}" Header="Event" Width="200" />
             </DataGrid.Columns>
         </DataGrid>
         <Border BorderBrush="Silver" BorderThickness="1" Height="97" HorizontalAlignment="Left" Name="border1" VerticalAlignment="Top" Width="543" Margin="12,0,0,0">
