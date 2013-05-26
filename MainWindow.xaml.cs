@@ -42,7 +42,7 @@ namespace Organiser
 
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            //http://thispointer.spaces.live.com/blog/cns!74930F9313F0A720!252.entry?_c11_blogpart_blogpart=blogview&_c=blogpart#permalink
+            
             this.Dispatcher.Invoke(DispatcherPriority.Normal, (Action)(() =>
             {
                 DateTime now1 = DateTime.Now;
@@ -76,23 +76,6 @@ namespace Organiser
             window.Show();
             
         }
-
-
-       /* private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            //int i = 0;
-            //while (i!=62)
-            //{
-                DateTime now1 = DateTime.Now;
-                string strDate = now1.ToShortTimeString();
-                textBlock1.Text = strDate;
-                
-                //i = 1 + 1;
-            //}
-           
-        }*/
-
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
