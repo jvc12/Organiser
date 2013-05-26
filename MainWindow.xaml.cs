@@ -32,12 +32,6 @@ namespace Organiser
             InitializeComponent();
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             timer.Enabled = true;
-            /*while (true)
-            {
-                DateTime now1 = DateTime.Now;
-                string strDate = now1.ToShortTimeString();
-                textBlock1.Text = strDate;
-            }*/
         }
 
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -56,7 +50,12 @@ namespace Organiser
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            string theDate = DateTimePicker1.Value.ToString();
+            //DateTime dt = this.DateTimePicker1.Value.Time;
+            int length = theDate.Length;
+            MessageBox.Show(length + " ");
+            MessageBox.Show(theDate);
+            MessageBox.Show(theDate[1]+" ");
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con.Open();
@@ -65,7 +64,7 @@ namespace Organiser
             //cmd.ExecuteNonQuery();   // SqlCommand is executed
             SqlCommand cmd = new SqlCommand("insert into Organizer select '" + DateTimePicker1.Text + "','" + textBox1.Text + "'", con);  
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Reminder is set Successfully on "+DateTimePicker1.Text); //Show message box
+            //MessageBox.Show("Reminder is set Successfully on "+DateTimePicker1.Text); //Show message box
             con.Close();  // Closes the connection
            
         }
