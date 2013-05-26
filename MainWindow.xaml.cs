@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace Organiser
 {
@@ -22,10 +24,34 @@ namespace Organiser
     /// </summary>
     public partial class MainWindow : Window
     {
+        System.Timers.Timer timer = new System.Timers.Timer(1000);
+
         public MainWindow()
         {
 
             InitializeComponent();
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
+            timer.Enabled = true;
+            /*while (true)
+            {
+                DateTime now1 = DateTime.Now;
+                string strDate = now1.ToShortTimeString();
+                textBlock1.Text = strDate;
+            }*/
+        }
+
+        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            //http://thispointer.spaces.live.com/blog/cns!74930F9313F0A720!252.entry?_c11_blogpart_blogpart=blogview&_c=blogpart#permalink
+            this.Dispatcher.Invoke(DispatcherPriority.Normal, (Action)(() =>
+            {
+                DateTime now1 = DateTime.Now;
+                string strDate = now1.ToShortTimeString();
+                textBlock1.Text = strDate;
+                /*secondHand.Angle = DateTime.Now.Second * 6;
+                minuteHand.Angle = DateTime.Now.Minute * 6;
+                hourHand.Angle = (DateTime.Now.Hour * 30) + (DateTime.Now.Minute * 0.5);*/
+            }));
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -41,6 +67,7 @@ namespace Organiser
             cmd.ExecuteNonQuery();
             MessageBox.Show("Reminder is set Successfully on "+DateTimePicker1.Text); //Show message box
             con.Close();  // Closes the connection
+           
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -51,12 +78,8 @@ namespace Organiser
         }
 
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+       /* private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-           
-
-
 
             //int i = 0;
             //while (i!=62)
@@ -68,6 +91,11 @@ namespace Organiser
                 //i = 1 + 1;
             //}
            
+        }*/
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
 
         
