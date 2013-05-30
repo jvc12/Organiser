@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         ResizeMode="NoResize" Title="Reminders" Loaded="Window_Loaded" Icon="/Organiser;component/Images/2do.jpg" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="371" Width="577" Background="#FFC7C7C7">
     <Grid>
-        <DataGrid AlternatingRowBackground="#FFC4B0B0" AutoGenerateColumns="False" Margin="12,103,28,12" Name="dataGrid1">
+        <DataGrid AutoGenerateColumns="False" Height="200" HorizontalAlignment="Left" Margin="126,103,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="314" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding value}" Header="Time" Width="200" />
-                <DataGridTextColumn Binding="{Binding name}" Header="Event" Width="200" />
+                <DataGridTextColumn Header="Date" Binding="{ Binding  Date}" Width="100"/>
+                <DataGridTextColumn Header="Time" Binding="{ Binding  Time}" Width="100"/>
+                <DataGridTextColumn Header="Name" Binding="{ Binding  Name}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
         <Border BorderBrush="Silver" BorderThickness="1" Height="97" HorizontalAlignment="Left" Name="border1" VerticalAlignment="Top" Width="543" Margin="12,0,0,0">

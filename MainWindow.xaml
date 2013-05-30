@@ -3,25 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
          xmlns:sys="clr-namespace:System;assembly=mscorlib"
-         
-         ResizeMode="NoResize" Title="Organizer" FontSize="12" FontFamily="Global User Interface"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Icon="/Organiser;component/Images/2do.jpg" Height="280" Width="511" Background="#FFC7C7C7">
+         ResizeMode="NoResize" Title="Organizer" FontSize="10" FontFamily="Global User Interface"  mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Icon="/Organiser;component/Images/2do.jpg" Height="280" Width="511" Background="#FFC1C1C1">
         
 <Grid Height="288" Width="484" MouseLeftButtonDown="Grid_MouseDown">
         <Button Content="Set Reminder" Height="23" HorizontalAlignment="Left" Margin="139,165,0,0" Name="button1" VerticalAlignment="Top" Width="75" FontSize="10" Click="button1_Click" Opacity="100" />
-        <Label Content="Select Date and Time" Height="28" HorizontalAlignment="Left" Margin="48,141,0,0" Name="label1" VerticalAlignment="Top" FontSize="10" />
-        <wpfx:DateTimePicker Height="25" HorizontalAlignment="Left" Margin="0,114,0,0" Name="DateTimePicker1" VerticalAlignment="Top" Width="250" />
-        
         <Button Content="Check Reminders" Height="23" HorizontalAlignment="Left" Margin="253,165,0,0" Name="button2" VerticalAlignment="Top" Width="85" FontSize="10" Click="button2_Click" />
         <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now},   
-       StringFormat='{}{0:dddd, MMMM dd, yyyy}'}" Margin="351,221,0,47" />
+       StringFormat='{}{0:dddd, MMMM dd, yyyy}'}" Margin="0,218,0,50" HorizontalAlignment="Right" Width="133" FontSize="10" />
         <Border BorderBrush="Silver" BorderThickness="1" Height="100" HorizontalAlignment="Left" Name="border1" VerticalAlignment="Top" Width="484">
             <Image Height="92" Name="image1" Stretch="Fill" Width="422" Source="/Organiser;component/Images/reminder4.gif" />
         </Border>
-        <Label Content="Today :" Height="28" HorizontalAlignment="Left" Margin="295,216,0,0" Name="label2" VerticalAlignment="Top" FontStyle="Oblique" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="272,114,0,0" Name="textBox1" VerticalAlignment="Top" Width="165" />
+        <Label Content="Today :" Height="28" HorizontalAlignment="Left" Margin="298,211,0,0" Name="label2" VerticalAlignment="Top" FontStyle="Oblique" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="317,114,0,0" Name="textBox1" VerticalAlignment="Top" Width="144" />
         <Label Content="Reminder name" Height="28" HorizontalAlignment="Left" Margin="333,139,0,0" Name="label3" VerticalAlignment="Top" FontSize="10" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,218,0,0" Name="textBlock1" Text="" VerticalAlignment="Top" Width="92" />
-    </Grid>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,218,0,0" Name="textBlock1" Text="" VerticalAlignment="Top" Width="92" FontSize="10" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="23,114,0,0" Name="datePicker1" VerticalAlignment="Top" Width="115" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="146,115,0,0" Name="textBox2" VerticalAlignment="Top" Width="120" />
+        <RadioButton Content="AM" GroupName="day" Height="16" HorizontalAlignment="Left" Margin="272,114,0,0" Name="radioButton1" VerticalAlignment="Top" FontSize="10" />
+        <RadioButton Content="PM" GroupName="day" Height="16" HorizontalAlignment="Left" Margin="272,0,0,144" Name="radioButton2" VerticalAlignment="Bottom" FontSize="10" />
+        <Label Content="Enter Time(hh:min)" Height="28" HorizontalAlignment="Left" Margin="150,139,0,0" Name="label4" VerticalAlignment="Top" FontSize="10" />
+            
+</Grid>
     
 </Window>
 

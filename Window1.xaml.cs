@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using Microsoft.SqlServer;
 
 
 namespace Organiser
@@ -35,13 +36,27 @@ namespace Organiser
             using (SqlConnection con = new SqlConnection(ConString))
             {
                 
-                CmdString = "SELECT * FROM Organizer";
+                /*CmdString = "SELECT * FROM test";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable("Organizer");
+                DataTable dt = new DataTable("test");
                 sda.Fill(dt);
-                dataGrid1.ItemsSource = dt.DefaultView;
-            }  
+                dataGrid1.ItemsSource = dt.DefaultView;*/
+
+
+                string sampleXmlFile = @".\data.xml";
+                DataSet dataSet = new DataSet();
+                dataSet.ReadXml(sampleXmlFile);
+                DataView dataView = new DataView(dataSet.Tables[0]);
+                dataGrid1.ItemsSource = dataView;
+
+
+
+            }
+
+
+
+ 
         }
     }
 }
